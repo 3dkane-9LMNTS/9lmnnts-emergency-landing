@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9LMNTS OS Client Setup Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .guide-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .guide-header {
+            background: linear-gradient(135deg, #FF7A00 0%, #FF5500 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .guide-nav {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .nav-pills .nav-link {
+            color: #FF7A00;
+            border-radius: 20px;
+            margin: 0 5px;
+        }
+        .nav-pills .nav-link.active {
+            background: #FF7A00;
+        }
+        .guide-content {
+            padding: 40px;
+        }
+        .step-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-number {
+            background: #FF7A00;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .feature-list li:before {
+            content: "✓";
+            color: #10B981;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .screenshot-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #FF7A00;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #FF7A00;
+        }
+        .checklist {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .emergency-contact {
+            background: #FFF3E0;
+            border-left: 4px solid #FF7A00;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .platform-tabs {
+            margin-bottom: 30px;
+        }
+        .platform-tab {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .platform-tab.active {
+            border-color: #FF7A00;
+            background: #FFF3E0;
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-container">
+        <div class="guide-header">
+            <h1><i class="fas fa-rocket"></i> 9LMNTS OS Client Setup Guide</h1>
+            <p class="lead">Complete Guide to Launching Your Gamified Event Platform</p>
+            <p><strong>Platform:</strong> <span id="platformType">[Platform Name]</span></p>
+            <p><strong>License Tier:</strong> <span id="licenseTier">[License Tier]</span></p>
+        </div>
+
+        <div class="guide-nav">
+            <ul class="nav nav-pills justify-content-center" id="guideTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="setup-tab" data-bs-toggle="tab" data-bs-target="#setup" type="button">
+                        <i class="fas fa-cog"></i> Setup
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features" type="button">
+                        <i class="fas fa-star"></i> Features
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="launch-tab" data-bs-toggle="tab" data-bs-target="#launch" type="button">
+                        <i class="fas fa-play"></i> Launch
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="support-tab" data-bs-toggle="tab" data-bs-target="#support" type="button">
+                        <i class="fas fa-life-ring"></i> Support
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="guide-content">
+            <div class="tab-content" id="guideTabContent">
+                <!-- Setup Tab -->
+                <div class="tab-pane fade show active" id="setup" role="tabpanel">
+                    <h2><i class="fas fa-cog"></i> Platform Setup</h2>
+                    <p>Follow these steps to get your 9LMNTS OS platform ready for your event.</p>
+
+                    <div class="platform-tabs">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="platform-tab active" onclick="selectPlatform('fashion')">
+                                    <i class="fas fa-tshirt fa-2x"></i>
+                                    <h6>Fashion Week Live</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="platform-tab" onclick="selectPlatform('corporate')">
+                                    <i class="fas fa-briefcase fa-2x"></i>
+                                    <h6>Corporate Clash</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="platform-tab" onclick="selectPlatform('culinary')">
+                                    <i class="fas fa-utensils fa-2x"></i>
+                                    <h6>Culinary Battle</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="platform-tab" onclick="selectPlatform('culture')">
+                                    <i class="fas fa-music fa-2x"></i>
+                                    <h6>Culture Clash</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4><span class="step-number">1</span> Initial Configuration</h4>
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5>Account Setup</h5>
+                                    <ul class="feature-list">
+                                        <li>Create your admin account using the credentials provided</li>
+                                        <li>Verify your email address</li>
+                                        <li>Set up two-factor authentication (recommended)</li>
+                                        <li>Complete your organization profile</li>
+                                    </ul>
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-image fa-3x"></i>
+                                        <p>Admin Login Screen</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h4><span class="step-number">2</span> Event Configuration</h4>
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5>Event Details</h5>
+                                    <ul class="feature-list">
+                                        <li>Enter event name, date, and venue information</li>
+                                        <li>Upload event logo and branding assets</li>
+                                        <li>Configure event timeline and schedule</li>
+                                        <li>Set up attendee registration settings</li>
+                                    </ul>
+                                    <div class="checklist">
+                                        <h6>Required Information:</h6>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="eventName">
+                                            <label class="form-check-label" for="eventName">Event Name</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="eventDate">
+                                            <label class="form-check-label" for="eventDate">Event Date & Time</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="eventVenue">
+                                            <label class="form-check-label" for="eventVenue">Venue Information</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="eventLogo">
+                                            <label class="form-check-label" for="eventLogo">Event Logo/Branding</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h4><span class="step-number">3</span> Platform Customization</h4>
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5>Branding & Design</h5>
+                                    <ul class="feature-list">
+                                        <li>Customize colors to match your brand</li>
+                                        <li>Upload custom backgrounds and banners</li>
+                                        <li>Configure voting categories and criteria</li>
+                                        <li>Set up networking profile fields</li>
+                                    </ul>
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-info-circle"></i> <strong>Pro Tip:</strong> Use high-quality images for best results on mobile devices.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h4><span class="step-number">4</span> QR Code Setup</h4>
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5>Attendee Access</h5>
+                                    <ul class="feature-list">
+                                        <li>Generate unique QR codes for each attendee</li>
+                                        <li>Set up check-in stations at venue entrance</li>
+                                        <li>Configure QR code scanning permissions</li>
+                                        <li>Test QR code functionality before event</li>
+                                    </ul>
+                                    <div class="screenshot-placeholder">
+                                        <i class="fas fa-qrcode fa-3x"></i>
+                                        <p>QR Code Check-in Interface</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Tab -->
+                <div class="tab-pane fade" id="features" role="tabpanel">
+                    <h2><i class="fas fa-star"></i> Platform Features</h2>
+                    <p>Learn about all the powerful features available in your 9LMNTS OS platform.</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-vote-yea"></i> Voting System</h5>
+                                    <ul class="feature-list">
+                                        <li>Real-time voting and polling</li>
+                                        <li>Multiple voting formats (ranked choice, points-based)</li>
+                                        <li>Live results display</li>
+                                        <li>Anti-fraud voting protection</li>
+                                        <li>Custom voting categories</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-users"></i> Networking</h5>
+                                    <ul class="feature-list">
+                                        <li>Digital attendee profiles</li>
+                                        <li>AI-powered matchmaking</li>
+                                        <li>Direct messaging system</li>
+                                        <li>Business card exchange</li>
+                                        <li>Scheduled meeting requests</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-line"></i> Analytics</h5>
+                                    <ul class="feature-list">
+                                        <li>Real-time engagement metrics</li>
+                                        <li>Attendee behavior tracking</li>
+                                        <li>Voting pattern analysis</li>
+                                        <li>Revenue reporting</li>
+                                        <li>Export capabilities</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-dollar-sign"></i> Monetization</h5>
+                                    <ul class="feature-list">
+                                        <li>Voting pack purchases</li>
+                                        <li>Tipping and donations</li>
+                                        <li>Sponsorship integration</li>
+                                        <li>Premium features access</li>
+                                        <li>Payment processing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card step-card mt-4">
+                        <div class="card-body">
+                            <h5><i class="fas fa-robot"></i> L.O.A. AI Agent (Professional/Enterprise Tiers)</h5>
+                            <p>The Lead Orchestrator Agent provides automated monitoring and support:</p>
+                            <ul class="feature-list">
+                                <li>Real-time error detection and resolution</li>
+                                <li>Automated system health monitoring</li>
+                                <li>Performance optimization</li>
+                                <li>24/7 automated support</li>
+                                <li>Intelligent troubleshooting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Launch Tab -->
+                <div class="tab-pane fade" id="launch" role="tabpanel">
+                    <h2><i class="fas fa-play"></i> Event Launch</h2>
+                    <p>Everything you need to successfully launch and run your event.</p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4><span class="step-number">1</span> Pre-Event Checklist</h4>
+                            <div class="checklist">
+                                <h6>Technical Setup</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="tech1">
+                                    <label class="form-check-label" for="tech1">Test internet connectivity at venue</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="tech2">
+                                    <label class="form-check-label" for="tech2">Set up check-in stations</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="tech3">
+                                    <label class="form-check-label" for="tech3">Test QR code scanning</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="tech4">
+                                    <label class="form-check-label" for="tech4">Verify voting functionality</label>
+                                </div>
+                            </div>
+
+                            <div class="checklist mt-3">
+                                <h6>Content Preparation</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="content1">
+                                    <label class="form-check-label" for="content1">Upload all contestant/participant profiles</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="content2">
+                                    <label class="form-check-label" for="content2">Set up voting categories</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="content3">
+                                    <label class="form-check-label" for="content3">Prepare event schedule</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="content4">
+                                    <label class="form-check-label" for="content4">Test notification system</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h4><span class="step-number">2</span> Event Day Execution</h4>
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5>Opening Ceremony</h5>
+                                    <ul class="feature-list">
+                                        <li>Welcome attendees and explain platform usage</li>
+                                        <li>Demonstrate QR code check-in process</li>
+                                        <li>Show voting interface on main screen</li>
+                                        <li>Encourage networking participation</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5>During Event</h5>
+                                    <ul class="feature-list">
+                                        <li>Monitor real-time voting results</li>
+                                        <li>Engage audience with live polls</li>
+                                        <li>Facilitate networking connections</li>
+                                        <li>Display leaderboards and achievements</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h4><span class="step-number">3</span> Post-Event</h4>
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5>Data Collection</h5>
+                                    <ul class="feature-list">
+                                        <li>Export voting results and analytics</li>
+                                        <li>Download attendee engagement data</li>
+                                        <li>Generate revenue reports</li>
+                                        <li>Collect feedback surveys</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Tab -->
+                <div class="tab-pane fade" id="support" role="tabpanel">
+                    <h2><i class="fas fa-life-ring"></i> Support & Resources</h2>
+                    <p>Get help when you need it and access additional resources.</p>
+
+                    <div class="emergency-contact">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Emergency Support</h4>
+                        <p><strong>For urgent issues during your event:</strong></p>
+                        <ul>
+                            <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+                            <li><strong>Email:</strong> emergency@9lmntsstudio.com</li>
+                            <li><strong>Live Chat:</strong> Available in your admin dashboard</li>
+                        </ul>
+                        <p><em>Available 24/7 for Professional and Enterprise license holders</em></p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-book"></i> Documentation</h5>
+                                    <ul class="feature-list">
+                                        <li><a href="#">Complete User Manual</a></li>
+                                        <li><a href="#">API Documentation</a></li>
+                                        <li><a href="#">Best Practices Guide</a></li>
+                                        <li><a href="#">Video Tutorials</a></li>
+                                        <li><a href="#">FAQ Section</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card step-card">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-graduation-cap"></i> Training</h5>
+                                    <ul class="feature-list">
+                                        <li>Onboarding session (1 hour)</li>
+                                        <li>Staff training materials</li>
+                                        <li>Event planning checklist</li>
+                                        <li>Marketing templates</li>
+                                        <li>Technical support guides</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card step-card mt-4">
+                        <div class="card-body">
+                            <h5><i class="fas fa-tools"></i> Troubleshooting Common Issues</h5>
+                            <div class="accordion" id="troubleshootingAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            QR Codes Not Working
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#troubleshootingAccordion">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>Check internet connectivity</li>
+                                                <li>Ensure QR codes are printed clearly</li>
+                                                <li>Test with different scanning apps</li>
+                                                <li>Verify URL is correct in QR code</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                            Voting Results Not Updating
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>Refresh the admin dashboard</li>
+                                                <li>Check voting session is active</li>
+                                                <li>Verify user permissions</li>
+                                                <li>Clear browser cache</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                            Slow Performance
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>Check internet bandwidth</li>
+                                                <li>Reduce concurrent users if needed</li>
+                                                <li>Clear browser cache</li>
+                                                <li>Contact support for optimization</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Set platform and tier from URL
+        if (urlParams.get('platform')) {
+            document.getElementById('platformType').textContent = urlParams.get('platform');
+        }
+        if (urlParams.get('tier')) {
+            document.getElementById('licenseTier').textContent = urlParams.get('tier');
+        }
+
+        // Platform selection
+        function selectPlatform(platform) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.platform-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Add active class to selected tab
+            event.target.closest('.platform-tab').classList.add('active');
+            
+            // Update platform type
+            const platformNames = {
+                'fashion': 'Fashion Week Live',
+                'corporate': 'Corporate Clash',
+                'culinary': 'Culinary Battle Royale',
+                'culture': 'Culture Clash'
+            };
+            
+            document.getElementById('platformType').textContent = platformNames[platform];
+        }
+
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+
+        // Print functionality
+        function printGuide() {
+            window.print();
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.form-check-input');
+            const checked = document.querySelectorAll('.form-check-input:checked');
+            const progress = (checked.length / checkboxes.length) * 100;
+            
+            // You can add a progress bar here if needed
+            console.log(`Setup Progress: ${progress.toFixed(0)}%`);
+        }
+
+        // Add event listeners to checkboxes
+        document.querySelectorAll('.form-check-input').forEach(checkbox => {
+            checkbox.addEventListener('change', updateProgress);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9LMNTS OS License Agreement</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        .contract-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .contract-header {
+            text-align: center;
+            border-bottom: 3px solid #FF7A00;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .contract-section {
+            margin-bottom: 30px;
+        }
+        .signature-section {
+            margin-top: 50px;
+            border-top: 2px solid #ddd;
+            padding-top: 30px;
+        }
+        .signature-line {
+            border-bottom: 1px solid #333;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #FF7A00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @media print {
+            .print-btn { display: none; }
+            .contract-container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Contract
+    </button>
+
+    <div class="contract-container">
+        <div class="contract-header">
+            <h1>9LMNTS OS License Agreement</h1>
+            <p class="lead">Gamified Live Event Platform Licensing</p>
+            <p><strong>Contract ID:</strong> <span id="contractId"></span></p>
+            <p><strong>Date:</strong> <span id="contractDate"></span></p>
+        </div>
+
+        <div class="contract-section">
+            <h3>Parties</h3>
+            <p><strong>Licensor:</strong> 9LMNTS Studio (hereinafter "9LMNTS")</p>
+            <p><strong>Licensee:</strong> <span id="clientName">[Client Name]</span></p>
+            <p><strong>Address:</strong> <span id="clientAddress">[Client Address]</span></p>
+            <p><strong>Email:</strong> <span id="clientEmail">[Client Email]</span></p>
+            <p><strong>Phone:</strong> <span id="clientPhone">[Client Phone]</span></p>
+        </div>
+
+        <div class="contract-section">
+            <h3>Platform License</h3>
+            <p><strong>Platform:</strong> <span id="platformType">[Platform Type]</span></p>
+            <p><strong>License Tier:</strong> <span id="licenseTier">[License Tier]</span></p>
+            <p><strong>License Fee:</strong> $<span id="licenseFee">[License Fee]</span></p>
+            <p><strong>Event Date:</strong> <span id="eventDate">[Event Date]</span></p>
+            <p><strong>Expected Attendees:</strong> <span id="attendees">[Number of Attendees]</span></p>
+        </div>
+
+        <div class="contract-section">
+            <h3>Grant of License</h3>
+            <p>9LMNTS hereby grants the Licensee a non-exclusive, non-transferable license to use the specified 9LMNTS OS platform for the duration of the event specified above.</p>
+            
+            <h4>License Includes:</h4>
+            <ul id="licenseIncludes">
+                <li>Platform access and configuration</li>
+                <li>QR code login system for attendees</li>
+                <li>Voting and interaction systems</li>
+                <li>Networking features</li>
+                <li>Technical support during event</li>
+            </ul>
+
+            <h4>Platform Features:</h4>
+            <ul id="platformFeatures">
+                <li>Real-time voting and polling</li>
+                <li>Attendee networking profiles</li>
+                <li>Live chat and messaging</li>
+                <li>Analytics and reporting dashboard</li>
+                <li>Mobile-responsive design</li>
+            </ul>
+        </div>
+
+        <div class="contract-section">
+            <h3>Licensee Responsibilities</h3>
+            <ul>
+                <li>Provide accurate event information and branding materials</li>
+                <li>Ensure internet connectivity at event venue</li>
+                <li>Promote the platform to event attendees</li>
+                <li>Comply with all applicable laws and regulations</li>
+                <li>Maintain appropriate content moderation</li>
+                <li>Not reverse engineer or copy the platform</li>
+            </ul>
+        </div>
+
+        <div class="contract-section">
+            <h3>Revenue Sharing</h3>
+            <p><strong>Licensee Revenue Streams:</strong></p>
+            <ul>
+                <li>Ticket sales: 100% to Licensee</li>
+                <li>Voting packs: 100% to Licensee</li>
+                <li>Tips and donations: 100% to Licensee</li>
+                <li>Sponsorships: 100% to Licensee</li>
+            </ul>
+            <p><em>Note: 9LMNTS does not take any percentage of event revenue. Licensee keeps 100% of all event-related income.</em></p>
+        </div>
+
+        <div class="contract-section">
+            <h3>Payment Terms</h3>
+            <p><strong>License Fee:</strong> $<span id="paymentAmount">[Amount]</span></p>
+            <p><strong>Payment Due:</strong> Upon signing of this agreement</p>
+            <p><strong>Payment Method:</strong> PayPal, Wire Transfer, or Credit Card</p>
+            <p><strong>Late Payment:</strong> 1.5% per month on overdue amounts</p>
+        </div>
+
+        <div class="contract-section">
+            <h3>Technical Support</h3>
+            <p><strong>Standard Support:</strong></p>
+            <ul>
+                <li>Email support during business hours</li>
+                <li>Platform setup and configuration assistance</li>
+                <li>Basic troubleshooting during event</li>
+            </ul>
+            
+            <p><strong>Premium Support (Professional/Enterprise Tiers):</strong></p>
+            <ul>
+                <li>24/7 phone and email support</li>
+                <li>On-site technical assistance (if required)</li>
+                <li>L.O.A. AI Agent monitoring and error resolution</li>
+                <li>Dedicated support representative</li>
+            </ul>
+        </div>
+
+        <div class="contract-section">
+            <h3>Intellectual Property</h3>
+            <p>9LMNTS retains all intellectual property rights to the 9LMNTS OS platform, including but not limited to software, designs, trademarks, and proprietary technology.</p>
+            <p>Licensee may not:</p>
+            <ul>
+                <li>Copy, modify, or distribute the platform</li>
+                <li>Use the platform for competitive purposes</li>
+                <li>Remove 9LMNTS branding without authorization</li>
+                <li>Reverse engineer or decompile the software</li>
+            </ul>
+        </div>
+
+        <div class="contract-section">
+            <h3>Term and Termination</h3>
+            <p><strong>Term:</strong> This license is valid for the duration of the specified event plus 30 days for data export.</p>
+            <p><strong>Termination:</strong> Either party may terminate this agreement with 30 days written notice.</p>
+            <p><strong>Effect of Termination:</strong> Upon termination, Licensee must cease using the platform and return all materials.</p>
+        </div>
+
+        <div class="contract-section">
+            <h3>Limitation of Liability</h3>
+            <p>9LMNTS shall not be liable for any indirect, incidental, or consequential damages arising from the use of the platform.</p>
+            <p>Total liability under this agreement shall not exceed the license fee paid.</p>
+        </div>
+
+        <div class="contract-section">
+            <h3>Confidentiality</h3>
+            <p>Both parties agree to keep confidential all proprietary information shared during the course of this agreement.</p>
+        </div>
+
+        <div class="contract-section">
+            <h3>Governing Law</h3>
+            <p>This agreement shall be governed by and construed in accordance with the laws of [State/Country].</p>
+        </div>
+
+        <div class="signature-section">
+            <h3>Signatures</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>9LMNTS Studio</h5>
+                    <div class="signature-line"></div>
+                    <p>Authorized Signature</p>
+                    <p>Name: _______________________</p>
+                    <p>Title: _______________________</p>
+                    <p>Date: _______________________</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Licensee</h5>
+                    <div class="signature-line"></div>
+                    <p>Authorized Signature</p>
+                    <p>Name: <span id="sigClientName">[Client Name]</span></p>
+                    <p>Title: <span id="clientTitle">[Client Title]</span></p>
+                    <p>Date: _______________________</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contract-section mt-5">
+            <h3>Acceptance</h3>
+            <p>By signing this agreement, the Licensee acknowledges that they have read, understood, and agree to be bound by all terms and conditions herein.</p>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="acceptTerms">
+                <label class="form-check-label" for="acceptTerms">
+                    I have read and agree to the terms of this license agreement
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate contract ID and date
+        document.getElementById('contractId').textContent = '9LMNTS-' + Date.now();
+        document.getElementById('contractDate').textContent = new Date().toLocaleDateString();
+
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Fill in contract details from URL parameters
+        if (urlParams.get('clientName')) {
+            document.getElementById('clientName').textContent = urlParams.get('clientName');
+            document.getElementById('sigClientName').textContent = urlParams.get('clientName');
+        }
+        if (urlParams.get('clientEmail')) document.getElementById('clientEmail').textContent = urlParams.get('clientEmail');
+        if (urlParams.get('clientPhone')) document.getElementById('clientPhone').textContent = urlParams.get('clientPhone');
+        if (urlParams.get('platformType')) document.getElementById('platformType').textContent = urlParams.get('platformType');
+        if (urlParams.get('licenseTier')) document.getElementById('licenseTier').textContent = urlParams.get('licenseTier');
+        if (urlParams.get('licenseFee')) document.getElementById('licenseFee').textContent = urlParams.get('licenseFee');
+        if (urlParams.get('paymentAmount')) document.getElementById('paymentAmount').textContent = urlParams.get('licenseFee');
+        if (urlParams.get('eventDate')) document.getElementById('eventDate').textContent = urlParams.get('eventDate');
+        if (urlParams.get('attendees')) document.getElementById('attendees').textContent = urlParams.get('attendees');
+        if (urlParams.get('clientTitle')) document.getElementById('clientTitle').textContent = urlParams.get('clientTitle');
+
+        // Update license features based on tier
+        function updateLicenseFeatures(tier) {
+            const includes = document.getElementById('licenseIncludes');
+            const features = document.getElementById('platformFeatures');
+            
+            if (tier === 'basic') {
+                includes.innerHTML = `
+                    <li>Platform access and configuration</li>
+                    <li>QR code login system for attendees</li>
+                    <li>Basic voting system</li>
+                    <li>Standard networking features</li>
+                    <li>Email support during business hours</li>
+                `;
+                features.innerHTML = `
+                    <li>Basic real-time voting</li>
+                    <li>Simple attendee profiles</li>
+                    <li>Basic chat functionality</li>
+                    <li>Standard analytics dashboard</li>
+                    <li>Mobile-responsive design</li>
+                `;
+            } else if (tier === 'professional') {
+                includes.innerHTML = `
+                    <li>Multi-platform access and configuration</li>
+                    <li>Advanced QR code login system</li>
+                    <li>Advanced voting with analytics</li>
+                    <li>Premium networking features</li>
+                    <li>Priority support during business hours</li>
+                    <li>Basic L.O.A. AI Agent monitoring</li>
+                `;
+                features.innerHTML = `
+                    <li>Advanced real-time voting with analytics</li>
+                    <li>Enhanced attendee profiles with matching</li>
+                    <li>Advanced chat and messaging</li>
+                    <li>Comprehensive analytics dashboard</li>
+                    <li>Mobile-responsive design</li>
+                    <li>Custom branding options</li>
+                `;
+            } else if (tier === 'enterprise') {
+                includes.innerHTML = `
+                    <li>All-platform access and configuration</li>
+                    <li>Enterprise QR code login system</li>
+                    <li>Custom voting systems</li>
+                    <li>White-label networking features</li>
+                    <li>24/7 dedicated support</li>
+                    <li>Full L.O.A. AI Agent monitoring and error resolution</li>
+                    <li>Custom integration support</li>
+                `;
+                features.innerHTML = `
+                    <li>Custom voting systems with full analytics</li>
+                    <li>Enterprise attendee profiles with AI matching</li>
+                    <li>Advanced chat with moderation tools</li>
+                    <li>Enterprise analytics dashboard</li>
+                    <li>Mobile-responsive design</li>
+                    <li>Full white-label customization</li>
+                    <li>API integration capabilities</li>
+                `;
+            }
+        }
+
+        // Update features if tier is specified
+        if (urlParams.get('licenseTier')) {
+            updateLicenseFeatures(urlParams.get('licenseTier'));
+        }
+    </script>
+</body>
+</html>
